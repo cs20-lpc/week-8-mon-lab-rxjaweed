@@ -2,6 +2,7 @@
 #define ARRAY_STACK_HPP
 
 #include "Stack.hpp"
+#include <algorithm>
 #include <iostream>
 using namespace std;
 
@@ -9,10 +10,12 @@ template <typename T>
 class ArrayStack : public Stack<T> {
     private:
         // an array that contains the elements
-        T* buffer;
+        T buffer[100];
+        int top;
 
         // the maximum number of elements in the stack
-        int maxSize;
+        int maxSize = 100;
+        
 
         // copy the state of the argument stack to `this`
         void copy(const ArrayStack<T>&);
